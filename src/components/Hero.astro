@@ -1,0 +1,57 @@
+---
+import { Image } from "astro:assets";
+import HeroLineArt from "../assets/hero-image.webp";
+---
+
+<section
+  id="hero"
+  class="relative pt-10 pb-16 md:pt-40 md:pb-24 lg:pt-56 lg:pb-32 bg-gradient-to-br from-gray-50 via-white via-40% to-white overflow-hidden"
+>
+  <div
+    class="container relative z-10 mx-auto px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20"
+  >
+    <div
+      class="flex flex-col-reverse items-center md:items-start md:flex-row gap-8 lg:gap-16"
+    >
+      <!-- TEXTO -->
+      <div
+        class="w-full md:w-1/2 lg:w-3/5 text-center md:text-left pt-8 md:pt-12 lg:pt-16"
+      >
+        <h1
+          class="mb-6 text-6xl font-bold text-gray-900 md:text-7xl lg:text-8xl xl:text-9xl !leading-none"
+        >
+          Espacio Terapéutico.
+        </h1>
+        <h2
+          class="mb-8 text-xl font-light text-gray-600 md:text-2xl lg:text-3xl leading-relaxed"
+        >
+          Transforma tu perspectiva y encuentra paz. Un viaje psicoanalítico
+          hacia tu bienestar.
+        </h2>
+        <a
+          href="#contacto"
+          aria-label="Ir a la sección de contacto para iniciar consulta"
+          class="inline-block px-10 py-4 font-normal text-black transition duration-300 ease-in-out border-2 border-black rounded-full hover:bg-black hover:text-white text-lg md:text-xl shadow-lg hover:shadow-xl"
+          data-aos="fade-up"
+          data-aos-delay="200"
+          data-aos-duration="500"
+        >
+          Comienza Ahora
+        </a>
+      </div>
+
+      <!-- IMAGEN -->
+      <div class="w-full md:w-1/2 lg:w-2/5 lg:scale-150">
+        <Image
+          src={HeroLineArt}
+          alt="Ilustración artística representando la introspección y el descubrimiento personal."
+          width={500}
+          height={500}
+          loading="eager"
+          decoding="async"
+          class="object-cover w-full h-auto"
+        />
+      </div>
+    </div>
+  </div>
+</section>

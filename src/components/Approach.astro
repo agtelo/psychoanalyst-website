@@ -1,0 +1,77 @@
+---
+import { Image } from "astro:assets";
+import ApproachImage from "../assets/image-lineart-3-depresion.webp";
+---
+
+<section
+  id="abordaje"
+  class="py-16 sm:py-20 md:py-28 lg:py-48 bg-white overflow-hidden"
+>
+  <div class="container mx-auto px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20">
+    <div class="mb-12 text-center md:mb-20">
+      <h3
+        class="mb-4 text-sm sm:text-base font-semibold tracking-widest text-gray-500 uppercase"
+        data-aos="fade-down"
+      >
+        Mi Enfoque
+      </h3>
+      <h2
+        class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-800 !leading-tight"
+        data-aos="fade-down"
+        data-aos-delay="100"
+      >
+        Abordaje Terapéutico Psicoanalítico
+      </h2>
+    </div>
+
+    <div class="flex flex-col items-center md:flex-row md:gap-16 lg:gap-24">
+      <!-- TEXTO -->
+      <div
+        class="w-full md:w-7/12 lg:w-3/5 md:order-1"
+        data-aos="fade-right"
+        data-aos-duration="1000"
+      >
+        <div
+          class="space-y-6 text-gray-700 text-base sm:text-lg md:text-lg lg:text-xl leading-relaxed"
+        >
+          <p>
+            La terapia psicoanalítica que ofrezco se centra en la singularidad
+            de cada persona. No sigo protocolos rígidos, sino que pongo en el
+            centro tu palabra y tu manera particular de experimentar el
+            sufrimiento. Es un espacio para la escucha atenta y sin juicios.
+          </p>
+          <p>
+            Trabajamos respetando tus tiempos, desde un compromiso ético con el
+            malestar que te trae a consulta. Mi mirada es integral y no
+            patologizante; el objetivo es crear un espacio seguro donde puedas
+            alojar tu discurso, explorar tu historia y tus deseos más profundos.
+          </p>
+          <p>
+            A través del análisis, te acompaño a descubrir nuevas formas de
+            relacionarte contigo mismo y con los demás. Es un proceso que abre
+            posibilidades para tramitar conflictos, generar transformaciones
+            subjetivas y encontrar nuevos caminos para tu vida.
+          </p>
+        </div>
+      </div>
+
+      <!-- IMAGEN -->
+      <div
+        class="w-full mt-12 md:w-5/12 lg:w-2/5 md:order-2 md:mt-0"
+        data-aos="fade-left"
+        data-aos-duration="1000"
+        data-aos-delay="100"
+      >
+        <Image
+          src={ApproachImage}
+          alt="Ilustración de arte lineal conceptual representando el proceso del psicoanálisis y la exploración interior."
+          loading="lazy"
+          decoding="async"
+          width="600"
+          height="700"
+          class="object-contain w-full h-auto mx-auto rounded-lg max-h-[600px] opacity-95"
+        />
+      </div>
+    </div>
+  </div>
+</section>

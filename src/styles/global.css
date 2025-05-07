@@ -1,0 +1,12 @@
+@import 'tailwindcss';
+
+
+@tailwind utilities;
+
+html {
+	scroll-behavior: smooth;
+}
+
+#mobile-menu {
+	transition: max-height 0.3s ease;
+}

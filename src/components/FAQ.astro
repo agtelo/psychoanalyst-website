@@ -1,0 +1,67 @@
+<section class="py-16 bg-white">
+  <h2 class="mb-12 text-3xl font-light text-center md:text-6xl">
+    Respuestas a tus posibles dudas
+  </h2>
+  <div class="max-w-3xl px-4 mx-auto space-y-6">
+    <style>
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+      }
+      .faq-open .faq-answer {
+        max-height: 500px;
+      }
+    </style>
+
+    <div class="pb-6 border-b">
+      <button
+        class="flex items-center justify-between w-full text-xl font-light text-left focus:outline-none"
+        onclick="this.parentElement.classList.toggle('faq-open')"
+      >
+        ¿Cómo es la primera sesión?
+        <span class="transition transform">+</span>
+      </button>
+      <p
+        class="mt-4 text-base text-gray-600 faq-answer md:text-lg lg:text-xl font-extralight"
+      >
+        En nuestro primer encuentro vamos a dedicarnos a conocerte, que puedas
+        expresar con libertad tus inquietudes y expectativas. Será un espacio
+        para empezar a construir juntos un vínculo terapéutico seguro.
+      </p>
+    </div>
+
+    <div class="pb-6 border-b">
+      <button
+        class="flex items-center justify-between w-full text-xl font-light text-left focus:outline-none"
+        onclick="this.parentElement.classList.toggle('faq-open')"
+      >
+        ¿Es posible hacer terapia online o presencial?
+        <span class="transition transform">+</span>
+      </button>
+      <p
+        class="mt-4 text-base text-gray-600 faq-answer md:text-lg lg:text-xl font-extralight"
+      >
+        Sí. Podés optar por sesiones online, ideales para mayor comodidad y
+        privacidad desde tu hogar, o de manera presencial si estás en Porto
+        Velho — RO. En ambos casos, garantizo la misma calidad en la atención.
+      </p>
+    </div>
+
+    <div class="pb-6 border-b">
+      <button
+        class="flex items-center justify-between w-full text-xl font-light text-left focus:outline-none"
+        onclick="this.parentElement.classList.toggle('faq-open')"
+      >
+        ¿Cuánto tiempo dura cada encuentro?
+        <span class="transition transform">+</span>
+      </button>
+      <p
+        class="mt-4 text-base text-gray-600 faq-answer md:text-lg lg:text-xl font-extralight"
+      >
+        Las sesiones tienen una duración aproximada de 40 minutos, un tiempo
+        pensado para trabajar en profundidad sin que resulte abrumador.
+      </p>
+    </div>
+  </div>
+</section>

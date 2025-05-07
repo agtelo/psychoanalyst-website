@@ -1,0 +1,179 @@
+---
+import { Image } from "astro:assets";
+import { Menu, X } from "lucide-astro";
+import Logo from "../assets/logo.webp";
+---
+
+<nav
+  class="sticky top-0 z-50 flex items-center justify-between px-6 py-4 bg-white shadow-sm lg:px-46"
+>
+  <a href="/" aria-label="Inicio - Lic. Ariel Muñoz">
+    <Image
+      src={Logo}
+      width="200"
+      height="200"
+      decoding="async"
+      alt="Logo Lic. Ariel Muñoz"
+      loading="eager"
+      class="w-36 md:w-56"
+    />
+  </a>
+
+  <div
+    class="hidden md:flex items-center gap-6 font-light text-gray-700 uppercase tracking-wide text-sm"
+  >
+    <a href="#sobre-mi" class="nav-link">Sobre mí</a>
+    <a href="#abordaje" class="nav-link">Abordaje terapéutico</a>
+    <a href="#servicios" class="nav-link">Tratamientos</a>
+    <a
+      href="#contacto"
+      class="inline-block px-5 py-2 text-white bg-black hover:bg-gray-800 rounded-full transition"
+      >Reserva tu consulta</a
+    >
+  </div>
+
+  <div class="md:hidden">
+    <button
+      id="menu-toggle"
+      class="relative z-50 focus-visible:outline-none"
+      aria-label="Abrir menú"
+    >
+      <Menu id="icon-menu" className="w-8 h-8 text-gray-700" />
+      <X id="icon-close" className="w-8 h-8 text-gray-700 hidden" />
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div
+  id="mobile-menu"
+  class="fixed top-[127px] left-0 w-full bg-white text-gray-800 uppercase font-light shadow-xl z-40 scale-95 opacity-0 pointer-events-none transition-all duration-300 ease-in-out rounded-b-lg"
+>
+  <a
+    href="#sobre-mi"
+    class="block px-8 py-5 border-b border-gray-200 hover:text-black"
+    >Sobre mí</a
+  >
+  <a
+    href="#abordaje"
+    class="block px-8 py-5 border-b border-gray-200 hover:text-black"
+    >Abordaje terapéutico</a
+  >
+  <a
+    href="#servicios"
+    class="block px-8 py-5 border-b border-gray-200 hover:text-black"
+    >Tratamientos</a
+  >
+  <a
+    href="#contacto"
+    class="block px-8 py-5 bg-black text-white hover:bg-gray-800"
+    >Reserva tu consulta</a
+  >
+</div>
+
+<div
+  id="mobile-menu-backdrop"
+  class="fixed inset-0 z-30 transition-opacity duration-300 opacity-0 pointer-events-none bg-black/50"
+>
+</div>
+
+<style>
+  .nav-link {
+    position: relative;
+    padding-bottom: 4px;
+    transition: color 0.3s;
+  }
+
+  .nav-link:hover {
+    color: black;
+  }
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0%;
+    background-color: black;
+    transition: width 0.3s ease;
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    width: 100%;
+  }
+
+  .nav-link.active {
+    color: black;
+    font-semibold: true;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const toggleButton = document.getElementById("menu-toggle");
+    const menu = document.getElementById("mobile-menu");
+    const backdrop = document.getElementById("mobile-menu-backdrop");
+    const iconMenu = document.getElementById("icon-menu");
+    const iconClose = document.getElementById("icon-close");
+    const links = document.querySelectorAll("nav a.nav-link");
+
+    if (toggleButton && menu && backdrop) {
+      toggleButton.addEventListener("click", () => {
+        menu.classList.toggle("opacity-0");
+        menu.classList.toggle("pointer-events-none");
+        menu.classList.toggle("scale-95");
+        backdrop.classList.toggle("opacity-0");
+        backdrop.classList.toggle("pointer-events-none");
+        if (iconMenu) iconMenu.classList.toggle("hidden");
+        if (iconClose) iconClose.classList.toggle("hidden");
+      });
+
+      document.querySelectorAll("#mobile-menu a").forEach((link) => {
+        link.addEventListener("click", () => {
+          menu.classList.add("opacity-0", "pointer-events-none", "scale-95");
+          backdrop.classList.add("opacity-0", "pointer-events-none");
+          if (iconMenu) iconMenu.classList.remove("hidden");
+          if (iconClose) iconClose.classList.add("hidden");
+        });
+      });
+
+      backdrop.addEventListener("click", () => {
+        menu.classList.add("opacity-0", "pointer-events-none", "scale-95");
+        backdrop.classList.add("opacity-0", "pointer-events-none");
+        if (iconMenu) iconMenu.classList.remove("hidden");
+        if (iconClose) iconClose.classList.add("hidden");
+      });
+    }
+
+    // Scrollspy
+    const sections = ["sobre-mi", "abordaje", "servicios", "contacto"].map(
+      (id) => document.getElementById(id)
+    );
+
+    function activateLink() {
+      const scrollPosition = window.scrollY + 100;
+      let activeIndex = -1;
+
+      sections.forEach((section, index) => {
+        if (section) {
+          const sectionTop = section.offsetTop;
+          const sectionBottom = sectionTop + section.offsetHeight;
+
+          if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+            activeIndex = index;
+          }
+        }
+      });
+
+      links.forEach((link) => link.classList.remove("active"));
+      if (activeIndex >= 0 && links[activeIndex]) {
+        links[activeIndex].classList.add("active");
+      }
+    }
+
+    activateLink();
+    window.addEventListener("scroll", activateLink);
+  });
+</script>

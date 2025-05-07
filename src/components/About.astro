@@ -1,0 +1,82 @@
+---
+import { Image } from "astro:assets";
+import AboutImage from "./src/assets/about-image.webp";
+---
+
+<section
+  id="sobre-mi"
+  class="py-16 sm:py-20 md:py-28 lg:py-48 bg-gray-50 overflow-hidden"
+>
+  <div class="container mx-auto px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20">
+    <div class="flex flex-col items-center md:flex-row md:gap-16 lg:gap-24">
+      <!-- TEXTO -->
+      <div
+        class="w-full md:w-5/12 md:order-1 text-center md:text-left"
+        data-aos="fade-right"
+        data-aos-duration="1000"
+      >
+        <h3
+          class="mb-4 text-sm sm:text-base font-semibold tracking-widest text-gray-500 uppercase"
+        >
+          SOBRE MÍ
+        </h3>
+        <h2
+          class="mb-8 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-800 !leading-tight"
+        >
+          Lic. Ariel Muñoz
+        </h2>
+
+        <div
+          class="space-y-6 text-gray-700 text-base sm:text-lg md:text-lg lg:text-xl leading-relaxed"
+        >
+          <p>
+            Soy Licenciado en Psicología, egresado de la Universidad de Buenos
+            Aires (UBA), con formación de orientación psicoanalítica. Desde mis
+            primeros pasos en la carrera, elegí recorrer un camino que me
+            permitiera explorar en profundidad el mundo interno de las personas,
+            apostando a una escucha atenta y comprometida.
+          </p>
+          <p>
+            Mi práctica clínica se fundamenta en los desarrollos del
+            psicoanálisis, entendiendo al sujeto como alguien atravesado por su
+            historia, su deseo y sus síntomas. Trabajo con la convicción de que
+            el sufrimiento psíquico puede ser abordado desde la palabra.
+          </p>
+          <p>
+            En un espacio de análisis se abren nuevas posibilidades para
+            pensar(se), tramitar conflictos y generar transformaciones
+            subjetivas, sosteniendo una práctica en permanente revisión.
+          </p>
+        </div>
+
+        <a
+          href="#abordaje"
+          aria-label="Conocer más sobre mi enfoque terapéutico"
+          class="inline-block px-8 py-3 mt-10 font-semibold uppercase tracking-wide text-black border-2 border-black rounded-full transition hover:bg-black hover:text-white text-sm sm:text-base"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          Mi Enfoque Terapéutico
+        </a>
+      </div>
+
+      <!-- IMAGEN -->
+      <div
+        class="w-full mt-12 md:w-7/12 md:order-2 md:mt-0"
+        data-aos="fade-left"
+        data-aos-duration="1000"
+        data-aos-delay="100"
+      >
+        <Image
+          src={AboutImage}
+          alt="Ilustración de arte lineal del Lic. Ariel Muñoz en un entorno de consulta."
+          loading="lazy"
+          decoding="async"
+          width="500"
+          height="500"
+          class="object-contain w-full h-auto mx-auto rounded-lg"
+        />
+      </div>
+    </div>
+  </div>
+</section>
